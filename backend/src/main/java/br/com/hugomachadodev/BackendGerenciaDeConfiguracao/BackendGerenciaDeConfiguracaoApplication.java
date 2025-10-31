@@ -5,6 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BackendGerenciaDeConfiguracaoApplication {
 
 	public static void main(String[] args) {
-		System.out.println("==> Servidor Online!");
+		System.out.println("==> Gerência de Configuração - Servidor Rodando!");
 	}
 }
