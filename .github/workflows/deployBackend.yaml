@@ -37,13 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Checkout Backend
-        uses: actions/checkout@v4
-
       - name: Download backend Gerado
         uses: actions/download-artifact@v4
         with:
-          name: backend-jar
+          name: backend
           path: backend-jar
 
       - name: Instalacao Railway cli
