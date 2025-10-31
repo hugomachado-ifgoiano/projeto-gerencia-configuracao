@@ -60,6 +60,6 @@ jobs:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy Backend
-        run: railway up --service backend-app-service --d .
+        run: railway up --service backend-app-service --ci
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
