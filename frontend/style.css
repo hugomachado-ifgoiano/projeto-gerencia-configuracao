@@ -1,0 +1,111 @@
+/* 1. Reset Básico para consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho total do elemento */
+}
+
+/* 2. Estilo Global (Corpo e Fonte) */
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte moderna e legível */
+    background-color: #f4f7f9; /* Fundo levemente cinza/azul para não ser um branco puro */
+    color: #333; /* Cor de texto principal escura */
+    line-height: 1.6;
+    padding-top: 60px; /* Espaço para o header fixo (se você quiser) */
+}
+
+/* 3. Estilo do Cabeçalho (Header) */
+.header {
+    background-color: #007bff; /* Azul vibrante (pode ser ajustado) */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixa o header no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header h1 {
+    font-weight: 600;
+    font-size: 2.2em;
+    margin-bottom: 5px;
+}
+
+.header h2 {
+    font-weight: 300;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* 4. Conteúdo Principal */
+.main-content {
+    max-width: 900px; /* Largura máxima para centralizar o conteúdo */
+    margin: 40px auto; /* Centraliza o bloco no meio da página */
+    padding: 20px;
+}
+
+/* 5. Seções (Alunos e Sobre) */
+.alunos-section, .info-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px; /* Cantos arredondados */
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra suave para profundidade */
+}
+
+.section-title {
+    color: #007bff; /* Cor do título da seção */
+    border-bottom: 2px solid #e9ecef; /* Linha sutil abaixo do título */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* 6. Lista de Alunos */
+.alunos-list {
+    list-style-type: none; /* Remove os marcadores de lista padrão */
+    padding-left: 0;
+}
+
+.alunos-list li {
+    background-color: #f8f9fa; /* Fundo mais claro para cada item */
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 4px;
+    border-left: 5px solid #007bff; /* Destaque lateral */
+    font-weight: 300; /* Texto mais leve */
+    transition: background-color 0.3s;
+}
+
+.alunos-list li:hover {
+    background-color: #e9ecef; /* Efeito de hover suave */
+}
+
+/* 7. Parágrafos na Seção de Informação */
+.info-section p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+/* 9. Responsividade para telas menores */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.8em;
+    }
+
+    .header h2 {
+        font-size: 1em;
+    }
+
+    .main-content {
+        margin: 20px 10px;
+        padding: 10px;
+    }
+    
+    .alunos-section, .info-section {
+        padding: 20px;
+    }
+}
