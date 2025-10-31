@@ -9,7 +9,7 @@ on:
     branches: ["main"]
     paths:
       - 'backend/**'
-      - '.github/workflows/deployBackend.yaml'
+      - '.github/workflows/workrflowDeploy.yaml'
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
       - name: Configura Java
         uses: actions/setup-java@v3
         with:
-          java-version: '21'
           distribution: 'temurin'
+          java-version: '21'
 
       - name: Build Backend
         working-directory: backend
@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: backend-app
-          path: backend/Deploy-Backend/target/*.jar
+          path: backend/target/*.jar
 
   deploy:
     runs-on: ubuntu-latest
