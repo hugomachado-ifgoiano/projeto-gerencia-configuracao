@@ -3,8 +3,13 @@ name: Continuos Integration Backend
 on:
   pull_request:
     branches: ["main"]
+    paths:
+        - 'backend/**'
   push:
     branches: ["main"]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/workrflowDeploy.yaml'
 
 jobs:
   build:
@@ -30,8 +35,8 @@ jobs:
       - name: Deploy Backend
         uses: actions/upload-artifact@v4
         with:
-          name: backend
-          path: backend/target/*.jar
+          name: backend-app
+          path: backend/Deploy-Backend/target/*.jar
 
   deploy:
     runs-on: ubuntu-latest
@@ -40,14 +45,14 @@ jobs:
       - name: Download backend Gerado
         uses: actions/download-artifact@v4
         with:
-          name: backend
-          path: backend-jar
+          name: backend-app
+          path: backend-app
 
       - name: Instalacao Railway cli
         run: npm install -g @railway/cli
 
       - name: Copia Backend Jar
-        run: cp backend-jar/*.jar aplicacaoBackend.jar
+        run: cp backend-app/*.jar aplicacaoBackend.jar
 
       - name: Teste Autenticação do Railway
         run: railway status
@@ -55,6 +60,6 @@ jobs:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
       - name: Deploy Backend
-        run: railway run --service backend-service -- java -jar aplicacaoBackend.jar --ci
+        run: railway run --service backend-app-service -- java -jar aplicacaoBackend.jar --ci
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
