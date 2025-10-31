@@ -61,6 +61,7 @@ jobs:
         run: railway status
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_PROJECT: ${{ secrets.RAILWAY_PROJECT_ID }}
 
       - name: Deploy Backend
         run: railway up --service backend-app-service --ci
