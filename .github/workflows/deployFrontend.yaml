@@ -3,8 +3,13 @@ name: Continuos Integration Frontend
 on:
   pull_request:
     branches: ["main"]
+    paths:
+        - 'front/**'
   push:
     branches: ["main"]
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/deployFrontend.yaml'
 
 permissions:
   contents: read
