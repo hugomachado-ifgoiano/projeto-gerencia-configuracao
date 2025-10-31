@@ -1,0 +1,34 @@
+name: Continuos Integration Frontend
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Frontend
+        uses: actions/checkout@v4
+      - name: Upload Frontend
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './frontend'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy Frontend
+        id: deployment
+        uses: actions/deploy-pages@v4
