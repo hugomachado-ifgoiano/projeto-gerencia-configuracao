@@ -11,7 +11,7 @@ body {
     background-color: #f4f7f9; /* Fundo levemente cinza/azul para não ser um branco puro */
     color: #333; /* Cor de texto principal escura */
     line-height: 1.6;
-    padding-top: 60px; /* Espaço para o header fixo (se você quiser) */
+    padding-top: 80px; /* Espaço maior para o header fixo */
 }
 
 /* 3. Estilo do Cabeçalho (Header) */
@@ -47,8 +47,8 @@ body {
     padding: 20px;
 }
 
-/* 5. Seções (Alunos e Sobre) */
-.alunos-section, .info-section {
+/* 5. Seções (Alunos e Info/Tech) */
+.alunos-section, .info-section, .tech-section {
     background-color: white;
     padding: 30px;
     border-radius: 8px; /* Cantos arredondados */
@@ -90,8 +90,71 @@ body {
     margin-bottom: 15px;
     text-align: justify;
 }
-/* 9. Responsividade para telas menores */
+
+/* 8. Estilo da Seção de Tecnologias (tech-section) */
+.tech-grid {
+    display: grid;
+    /* 2 colunas no desktop, ajustável para 1 no mobile */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px;
+}
+
+.tech-item {
+    background-color: #eaf3ff; /* Cor de fundo suave para o item */
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #cce0ff;
+    transition: transform 0.3s;
+}
+
+.tech-item:hover {
+    transform: translateY(-5px); /* Efeito de elevação */
+}
+
+.tech-item h4 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.tech-item p {
+    font-size: 0.9em;
+}
+
+/* 9. Detalhes do Repositório (repo-details) */
+.repo-link {
+    display: inline-block;
+    background-color: #28a745; /* Botão verde para o link */
+    color: white;
+    padding: 8px 15px;
+    margin-top: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.repo-link:hover {
+    background-color: #218838;
+}
+
+/* 10. Rodapé (Footer) */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* 11. Responsividade para telas menores */
 @media (max-width: 600px) {
+    body {
+        padding-top: 70px; /* Ajusta o padding do body */
+    }
+
     .header h1 {
         font-size: 1.8em;
     }
@@ -105,7 +168,9 @@ body {
         padding: 10px;
     }
     
-    .alunos-section, .info-section {
+    .alunos-section, .info-section, .tech-section {
         padding: 20px;
     }
+
+    /* O tech-grid se ajustará automaticamente graças ao auto-fit */
 }
